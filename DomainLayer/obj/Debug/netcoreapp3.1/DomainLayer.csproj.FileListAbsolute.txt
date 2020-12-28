@@ -1,0 +1,12 @@
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.AssemblyInfoInputs.cache
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.AssemblyInfo.cs
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.csproj.CoreCompileInputs.cache
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\bin\Debug\netcoreapp3.1\DomainLayer.deps.json
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\bin\Debug\netcoreapp3.1\DomainLayer.runtimeconfig.json
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\bin\Debug\netcoreapp3.1\DomainLayer.runtimeconfig.dev.json
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\bin\Debug\netcoreapp3.1\DomainLayer.dll
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\bin\Debug\netcoreapp3.1\DomainLayer.pdb
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.dll
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.pdb
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.genruntimeconfig.cache
+C:\Users\kevin\source\repos\GeographyService\DomainLayer\obj\Debug\netcoreapp3.1\DomainLayer.csprojAssemblyReference.cache
