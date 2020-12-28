@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevin\\source\\repos\\GeographyService\\API\\API.csproj": {}
+    "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevin\\source\\repos\\GeographyService\\API\\API.csproj": {
+    "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\GeographyService\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj",
+        "projectName": "DataLayer",
+        "projectPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\API\\obj\\",
+        "outputPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -66,10 +66,6 @@
               "target": "Package",
               "version": "[2.0.3, )"
             },
-            "NSwag.AspNetCore": {
-              "target": "Package",
-              "version": "[13.9.4, )"
-            },
             "Packable.newtonjson": {
               "target": "Package",
               "version": "[2.0.0, )"
@@ -86,9 +82,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
