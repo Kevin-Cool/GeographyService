@@ -24,10 +24,8 @@ namespace DataLayer.Repositorys
         {
             try
             {
-                Country country = _countries.Include(c => c.Cities).Include(c => c.Capital).FirstOrDefault(x => x.ID.Equals(river.Country_ID));
-                if (country is null) throw new ArgumentException("This river's Country douse not exist");
-                country.Rivers.Add(river);
-                _countries.Update(country);
+                
+                _rivers.Add(river);
                 _context.SaveChanges();
                 return river;
             }
@@ -38,11 +36,12 @@ namespace DataLayer.Repositorys
             }
         }
 
-        public bool Exists(River river)
+        public bool Exists(River river) => this.Exists(river.ID);
+        public bool Exists(int id)
         {
             try
             {
-                return _rivers.Any(x => x.ID == river.ID) ? true : false;
+                return _rivers.Any(x => x.ID == id);
             }
             catch (Exception e)
             {
@@ -76,7 +75,7 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
+        public void Remove(int id) => this.Remove(GetById(id));
         public void Remove(River river)
         {
             try

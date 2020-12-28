@@ -32,12 +32,12 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
-        public bool Exists(Continent continent)
+        public bool Exists(Continent continent) => this.Exists(continent.ID);
+        public bool Exists(int id)
         {
             try
             {
-                return _continents.Any(x => x.ID == continent.ID) ? true : false;
+                return _continents.Any(x => x.ID == id);
             }
             catch (Exception e)
             {
@@ -71,7 +71,7 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
+        public void Remove(int id) => this.Remove(GetById(id));
         public void Remove(Continent continent)
         {
             try

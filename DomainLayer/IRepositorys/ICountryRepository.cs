@@ -8,10 +8,13 @@ namespace DomainLayer.IRepositorys
     public interface ICountryRepository
     {
         Country Add(Country country);
-        Country GetById(int id);
+        Country GetById(int continentid,int countryid);
+        Country GetById(int countryid);
         IEnumerable<Country> GetAll(int? id);
         void Remove(Country country);
+        void Remove(int continentid, int countryid);
         void Update(Country country);
         bool Exists(Country country);
+        bool Exists(int id);
     }
 }

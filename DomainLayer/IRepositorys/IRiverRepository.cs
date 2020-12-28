@@ -11,7 +11,9 @@ namespace DomainLayer.IRepositorys
         River GetById(int id);
         IEnumerable<River> GetAll();
         void Remove(River river);
+        void Remove(int id);
         void Update(River river);
         bool Exists(River river);
+        bool Exists(int id);
     }
 }

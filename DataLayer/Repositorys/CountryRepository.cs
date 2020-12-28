@@ -37,12 +37,12 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
-        public bool Exists(Country country)
+        public bool Exists(Country country) => this.Exists(country.ID);
+        public bool Exists(int id)
         {
             try
             {
-                return _countries.Any(x => x.ID == country.ID) ? true : false;
+                return _continent.Any(x => x.ID == id);
             }
             catch (Exception e)
             {
@@ -71,11 +71,11 @@ namespace DataLayer.Repositorys
             }
         }
 
-        public Country GetById(int id)
+        public Country GetById(int continentid, int countryid)
         {
             try
             {
-                return Countries.FirstOrDefault(i => i.ID.Equals(id));
+                return Countries.FirstOrDefault(i => i.ID.Equals(countryid) && i.BelongsTo.ID.Equals(continentid));
             }
             catch (Exception e)
             {
@@ -83,7 +83,19 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
+        public Country GetById(int countryid)
+        {
+            try
+            {
+                return Countries.FirstOrDefault(i => i.ID.Equals(countryid));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public void Remove(int continentid, int countryid) => this.Remove(GetById(continentid, countryid));
         public void Remove(Country country)
         {
             try

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace DomainLayer.Models
@@ -9,14 +10,14 @@ namespace DomainLayer.Models
     {
         #region Attributes
         public int ID { get; private set; }
-        public int Country_ID { get; set; }
         public string Name { get { return _name; } set { SetName(value); } }
         [Required]
         private string _name;
         public double Length { get { return _length; } set { SetLength(value); } }
         [Required]
         private double _length;
-
+        [NotMapped]
+        public List<int> BelongsToIDs { get; set; } = new List<int>();
         public virtual ICollection<Country> BelongsTo { get; set; } = new HashSet<Country>();
         #endregion
         #region Constructors

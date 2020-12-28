@@ -32,6 +32,10 @@ namespace DomainLayer.Models
         {
             SetName(name);
         }
+        public Country(int id)
+        {
+            ID = id;
+        }
         #endregion
 
         #region Methodes

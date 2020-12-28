@@ -2503,6 +2503,23 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "DataLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DomainLayer": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.1",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "NETStandard.Library": "2.0.3",
+          "Packable.newtonjson": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayer.dll": {}
+        }
+      },
       "DomainLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -8265,6 +8282,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "DataLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataLayer/DataLayer.csproj",
+      "msbuildProject": "../DataLayer/DataLayer.csproj"
+    },
     "DomainLayer/1.0.0": {
       "type": "project",
       "path": "../DomainLayer/DomainLayer.csproj",
@@ -8273,6 +8295,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DataLayer >= 1.0.0",
       "DomainLayer >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.1",
@@ -8309,6 +8332,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\DataLayer\\DataLayer.csproj"
+            },
             "C:\\Users\\kevin\\source\\repos\\GeographyService\\DomainLayer\\DomainLayer.csproj": {
               "projectPath": "C:\\Users\\kevin\\source\\repos\\GeographyService\\DomainLayer\\DomainLayer.csproj"
             }

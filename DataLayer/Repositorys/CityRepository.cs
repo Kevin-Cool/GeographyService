@@ -54,12 +54,12 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
-        public bool Exists(City city)
+        public bool Exists(City city) => this.Exists(city.ID); 
+        public bool Exists(int id)
         {
             try
             {
-                return _cities.Any(x => x.ID == city.ID) ? true : false;
+                return _cities.Any(x => x.ID == id);
             }
             catch (Exception e)
             {
@@ -67,14 +67,17 @@ namespace DataLayer.Repositorys
                 return false;
             }
         }
+        private IQueryable<City> Cities => _cities
+            .Include(k => k.BelongsTo)
+            .ThenInclude(k => k.BelongsTo);
 
         public IEnumerable<City> GetAll(int? id)
         {
             try
             {
-                if (id is null) return _cities.ToList();
+                if (id is null) return Cities.ToList();
 
-                return _cities.Include(c => c.BelongsTo).ThenInclude(c => c.BelongsTo).Where(c => c.BelongsTo.ID.Equals(id));
+                return Cities.Where(c => c.BelongsTo.ID.Equals(id));
             }
             catch (Exception e)
             {
@@ -83,11 +86,11 @@ namespace DataLayer.Repositorys
             }
         }
 
-        public City GetById(int id)
+        public City GetById(int continentid, int countryid, int id)
         {
             try
             {
-                return _cities.Include(c => c.BelongsTo).ThenInclude(c => c.BelongsTo).FirstOrDefault(i => i.ID.Equals(id));
+                return Cities.FirstOrDefault(i => i.ID.Equals(id) && i.BelongsTo.ID.Equals(countryid) && i.BelongsTo.BelongsTo.ID.Equals(continentid));
             }
             catch (Exception e)
             {
@@ -95,7 +98,7 @@ namespace DataLayer.Repositorys
                 return null;
             }
         }
-
+        public void Remove(int continentid, int countryid, int id) => this.Remove(GetById(continentid, countryid, id));
         public void Remove(City city)
         {
             try
