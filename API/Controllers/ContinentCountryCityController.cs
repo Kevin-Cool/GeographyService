@@ -75,7 +75,8 @@ namespace API.Controllers
             try
             {
                 Continent newContinent = _Continentrepo.Add(continent);
-                return CreatedAtAction(nameof(GetContinentsById), new { id = newContinent.ID }, newContinent);
+                ContinentDTO tempContinent = new ContinentDTO(newContinent);
+                return CreatedAtAction(nameof(GetContinentsById), new { id = tempContinent.ID }, tempContinent);
             }
             catch (Exception e)
             {
@@ -94,8 +95,9 @@ namespace API.Controllers
                 }
                 if (!_Continentrepo.Exists(continen))
                 {
-                    Continent newContinen = _Continentrepo.Add(continen);
-                    return CreatedAtAction(nameof(GetContinentsById), new { id = newContinen.ID }, newContinen);
+                    Continent newContinent = _Continentrepo.Add(continen);
+                    ContinentDTO tempContinent = new ContinentDTO(newContinent);
+                    return CreatedAtAction(nameof(GetContinentsById), new { id = tempContinent.ID }, tempContinent);
                 }
                 _Continentrepo.Update(continen);
                 return new OkObjectResult("continen was updated.");
@@ -179,7 +181,8 @@ namespace API.Controllers
             try
             {
                 Country newcountry = _Countryrepo.Add(country);
-                return CreatedAtAction(nameof(GetContinentsById), new { id = newcountry.ID }, newcountry);
+                CountryDTO tempcountryt = new CountryDTO(newcountry);
+                return CreatedAtAction(nameof(GetContinentsById), new { id = tempcountryt.ID }, tempcountryt);
             }
             catch (Exception e)
             {
@@ -199,7 +202,8 @@ namespace API.Controllers
                 if (!_Countryrepo.Exists(country))
                 {
                     Country newcountry = _Countryrepo.Add(country);
-                    return CreatedAtAction(nameof(GetContinentsById), new { id = newcountry.ID }, newcountry);
+                    CountryDTO tempcountryt = new CountryDTO(newcountry);
+                    return CreatedAtAction(nameof(GetContinentsById), new { id = tempcountryt.ID }, tempcountryt);
                 }
                 _Countryrepo.Update(country);
                 return new OkObjectResult("country was updated.");
@@ -283,7 +287,8 @@ namespace API.Controllers
             try
             {
                 City newCity = _cityrepo.AddCity(city);
-                return CreatedAtAction(nameof(GetContinentsById), new { id = newCity.ID }, newCity);
+                CityDTO tempCity = new CityDTO(newCity);
+                return CreatedAtAction(nameof(GetContinentsById), new { id = tempCity.ID }, tempCity);
             }
             catch (Exception e)
             {
@@ -303,7 +308,8 @@ namespace API.Controllers
                 if (!_cityrepo.Exists(city))
                 {
                     City newCity = _cityrepo.AddCity(city);
-                    return CreatedAtAction(nameof(GetContinentsById), new { id = newCity.ID }, newCity);
+                    CityDTO tempCity = new CityDTO(newCity);
+                    return CreatedAtAction(nameof(GetContinentsById), new { id = tempCity.ID }, tempCity);
                 }
                 _cityrepo.Update(city);
                 return new OkObjectResult("city was updated.");
@@ -325,7 +331,8 @@ namespace API.Controllers
                 if (!_cityrepo.Exists(city))
                 {
                     City newCity = _cityrepo.AddCapital(city);
-                    return CreatedAtAction(nameof(GetContinentsById), new { id = newCity.ID }, newCity);
+                    CityDTO tempCity = new CityDTO(newCity);
+                    return CreatedAtAction(nameof(GetContinentsById), new { id = tempCity.ID }, tempCity);
                 }
                 _cityrepo.Update(city);
                 return new OkObjectResult("Capital was updated.");

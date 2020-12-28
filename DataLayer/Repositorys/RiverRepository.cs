@@ -24,7 +24,6 @@ namespace DataLayer.Repositorys
         {
             try
             {
-                
                 _rivers.Add(river);
                 _context.SaveChanges();
                 return river;

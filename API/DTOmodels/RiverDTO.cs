@@ -8,7 +8,7 @@ namespace API.DTOmodels
 {
     public class RiverDTO
     {
-        private static string _baseURL = "http://localhost:50051/api/river/";
+        private static string _baseURL = "http://localhost:50051/api/continent/";
 
         #region Attributes
         public int ID { get; set; }
@@ -23,7 +23,7 @@ namespace API.DTOmodels
             ID = river.ID;
             Name = river.Name;
             Length = river.Length;
-            river.BelongsTo.ToList().ForEach(c => BelongsTo.Add(_baseURL + c.ID));
+            river.BelongsTo.ToList().ForEach(c => BelongsTo.Add(_baseURL+c.BelongsTo.ID +"/country/"+ c.ID));
         }
         #endregion
 

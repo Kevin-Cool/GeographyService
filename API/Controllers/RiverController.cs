@@ -78,7 +78,8 @@ namespace API.Controllers
 
 
                 River newriver = _riverrepo.Add(river);
-                return CreatedAtAction(nameof(GetById), new { id = newriver.ID }, newriver);
+                RiverDTO tempRiver = new RiverDTO(newriver);
+                return CreatedAtAction(nameof(GetById), new { id = tempRiver.ID }, tempRiver);
             }
             catch (Exception e)
             {
@@ -98,7 +99,8 @@ namespace API.Controllers
                 if (!_riverrepo.Exists(river))
                 {
                     River newriver = _riverrepo.Add(river);
-                    return CreatedAtAction(nameof(GetById), new { id = newriver.ID }, newriver);
+                    RiverDTO tempRiver = new RiverDTO(newriver);
+                    return CreatedAtAction(nameof(GetById), new { id = tempRiver.ID }, tempRiver);
                 }
                 _riverrepo.Update(river);
                 return new OkObjectResult("river was updated.");
