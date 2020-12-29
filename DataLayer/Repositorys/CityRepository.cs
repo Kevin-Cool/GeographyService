@@ -43,6 +43,7 @@ namespace DataLayer.Repositorys
             {
                 Country country = _countries.Include(c => c.Cities).Include(c => c.Capital).FirstOrDefault(x => x.ID.Equals(city.Country_ID));
                 if (country is null) throw new ArgumentException("This city's Country douse not exist");
+                if(!country.Cities.Contains(city)) throw new ArgumentException("This City's douse not exist in this country");
                 country.AddCapital(city);
                 _countries.Update(country);
                 _context.SaveChanges();

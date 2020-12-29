@@ -14,6 +14,7 @@ namespace DataLayer
         public DbSet<Continent> Continents { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<River> Rivers { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -50,6 +51,10 @@ namespace DataLayer
 
             builder.Entity<Continent>().ToTable("Continents");
             builder.Entity<Continent>().Property(i => i.ID).IsRequired().ValueGeneratedOnAdd();
+
+            builder.Entity<Log>().ToTable("Logs");
+            builder.Entity<Log>().Property(i => i.ID).IsRequired().ValueGeneratedOnAdd();
+
         }
     }
 }

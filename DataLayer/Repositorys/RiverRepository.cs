@@ -24,6 +24,7 @@ namespace DataLayer.Repositorys
         {
             try
             {
+                if (river.BelongsTo.Count.Equals(0)) throw new ArgumentException("This river belongs nowhere");
                 _rivers.Add(river);
                 _context.SaveChanges();
                 return river;
@@ -53,7 +54,7 @@ namespace DataLayer.Repositorys
         {
             try
             {
-                return _rivers.Include(k => k.BelongsTo).ToList();
+                return _rivers.Include(k => k.BelongsTo).ThenInclude(b => b.BelongsTo).ToList();
             }
             catch (Exception e)
             {
@@ -66,7 +67,7 @@ namespace DataLayer.Repositorys
         {
             try
             {
-                return _rivers.Include(k => k.BelongsTo).FirstOrDefault(i => i.ID.Equals(id));
+                return _rivers.Include(k => k.BelongsTo).ThenInclude(b => b.BelongsTo).FirstOrDefault(i => i.ID.Equals(id));
             }
             catch (Exception e)
             {

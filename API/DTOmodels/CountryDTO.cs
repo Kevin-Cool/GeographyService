@@ -30,7 +30,7 @@ namespace API.DTOmodels
             country.Capital.ForEach(c => Capital.Add(_baseURL+ country.BelongsTo.ID + "/country/"+ID+ "/city/" + c.ID));
             country.Cities.ForEach(c => Cities.Add(_baseURL + country.BelongsTo.ID + "/country/" + ID + "/city/" + c.ID));
             BelongsTo = _baseURL + country.BelongsTo.ID;
-            country.Rivers.ToList().ForEach(r => Cities.Add("http://localhost:50051/api/river/" + r.ID));
+            country.Rivers.ToList().ForEach(r => Rivers.Add("http://localhost:50051/api/river/" + r.ID));
         }
         #endregion
     }

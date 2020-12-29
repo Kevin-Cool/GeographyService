@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Middleware;
 using DataLayer;
 using DataLayer.Repositorys;
 using DomainLayer.IRepositorys;
@@ -45,15 +46,18 @@ namespace API
             services.AddScoped<IContinentRepository, ContinentRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IRiverRepository, RiverRepository>();
+            services.AddScoped<ILogRepository, LogRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogRepository logRepository)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware<ApiLoggingMiddleware>();
 
             app.UseHttpsRedirection();
 
